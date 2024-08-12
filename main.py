@@ -49,7 +49,7 @@ from PIL import Image
 st.title("画像表示のテストです")
 st.write("Display Image")
 # 画像の読み込み
-img = Image.open("../pic/img052.png")
+img = Image.open("img052.png")
 # 画像の表示
 st.image(img, caption="テストです", use_column_width=True)
 
