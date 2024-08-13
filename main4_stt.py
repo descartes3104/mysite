@@ -2,6 +2,7 @@ import streamlit as st
 import speech_recognition as sr
 import sounddevice as sd
 import numpy as np
+import wavio
 
 # 言語選択と、APIが認識する言語の変換リストを作成
 set_language_list = {
@@ -12,11 +13,19 @@ set_language_list = {
 # デフォルトの言語を設定
 set_language = "日本語"
 
+# 音声を録音する関数
+def record_audio(duration, fs, filename):
+    print("Recording...")
+    audio = sd.rec(int(duration * fs), samplerate=fs, channels=1, dtype='int16')
+    sd.wait()
+    wavio.write(filename, audio, fs, sampwidth=2)
+    print("Recording complete")
+
 # 音声認識の言語を引数に音声認識をする
-def mic_speech_to_text(set_language):
+def mic_speech_to_text(set_language, filename):
     recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        audio = recognizer.listen(source)
+    with sr.AudioFile(filename) as source:
+        audio = recognizer.record(source)
         try:
             text = recognizer.recognize_google(audio, language=set_language_list[set_language])
         except:
@@ -41,6 +50,7 @@ st.write("マイクでの音声認識はこちらのボタンから")
 if st.button("音声認識開始"):
     state = st.empty()
     state.write("音声認識中")
-    result_text = mic_speech_to_text(set_language)
+    record_audio(5, 44100, "output.wav")  # 5秒間録音
+    result_text = mic_speech_to_text(set_language, "output.wav")
     state.write("音声認識結果:")
     st.write(result_text)
