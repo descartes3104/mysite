@@ -6,4 +6,4 @@ altair
 setuptools
 SpeechRecognition
 sounddevice
-pyaudio
+pyaudio==0.2.11
