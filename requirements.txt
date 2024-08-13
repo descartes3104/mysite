@@ -4,6 +4,7 @@ pandas==2.2.2
 yfinance
 altair
 pipwin
+setuptools
 SpeechRecognition
 sounddevice
 pyaudio
