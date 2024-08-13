@@ -4,3 +4,4 @@ pandas==2.2.2
 yfinance
 altair
 speech_recognition
+pyaudio
