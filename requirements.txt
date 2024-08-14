@@ -8,3 +8,6 @@ SpeechRecognition
 sounddevice
 pyocr
 Sonar
+pytesseract
+Pillow
+asari
