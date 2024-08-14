@@ -6,4 +6,4 @@ altair
 setuptools
 SpeechRecognition
 sounddevice
-wavio
+pyocr
