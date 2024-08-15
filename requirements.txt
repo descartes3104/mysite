@@ -1,0 +1,15 @@
+streamlit==1.37.1
+numpy==1.26.4
+pandas==2.2.2
+yfinance
+altair
+setuptools
+SpeechRecognition
+sounddevice
+pyocr
+Sonar
+pytesseract
+Pillow
+asari
+os
+OpenAI
