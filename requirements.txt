@@ -11,5 +11,4 @@ Sonar
 pytesseract
 Pillow
 asari
-os
 OpenAI
