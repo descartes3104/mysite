@@ -3,6 +3,16 @@ import streamlit as st
 from PIL import Image
 import pyocr
 import platform
+import subprocess
+
+# Tesseractのバージョンを確認
+try:
+    version = subprocess.check_output(['tesseract', '--version'])
+    st.write("Tesseract version:")
+    st.text(version.decode('utf-8'))
+except FileNotFoundError:
+    st.error("Tesseract is not installed.")
+
 
 if platform.system() == "Windows":
     pyocr.tesseract.TESSERACT_CMD = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
